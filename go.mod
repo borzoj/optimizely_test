@@ -1,4 +1,4 @@
-module mymodule
+module optimizely-test
 
 go 1.12
 
