@@ -18,7 +18,9 @@ func randString() string {
 
 func main() {
 
-	//rand.Seed(time.Now().UTC().UnixNano())
+	//rand.Seed(time.Now().UTC().UnixNano()) - without seeding the random generator
+	//we get the same set of emails every time so we can nicelty see how feature values
+	//change for the same users depending 
 	logging.SetLogLevel(logging.LogLevelError)
 
 	optimizelyFactory := &client.OptimizelyFactory{
@@ -26,6 +28,8 @@ func main() {
 	}
 
 	// Instantiates a client that syncs the datafile in the background
+	// this should be done on handler level in the lambda, so that the client lives and is not
+	// created for every request! 
 	optimizelyClient, err := optimizelyFactory.Client()
 
 	if err != nil {
