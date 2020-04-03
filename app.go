@@ -12,8 +12,6 @@ import (
 
 const optimizeSdkKey = "XWrur15ApwRCYRASkqUmA"
 
-var datafileURL = "https://cdn.optimizely.com/datafiles/XWrur15ApwRCYRASkqUmA.json"
-
 func randString() string {
 	return strconv.Itoa(int(rand.Float64() * 100000))
 }
@@ -39,7 +37,7 @@ func main() {
 			ID: "michal+" + randString() + "@zavamed.com",
 		}
 
-		isEnabled, err := optimizelyClient.IsFeatureEnabled("michal_test", user)
+		isEnabled, err := optimizelyClient.IsFeatureEnabled("zava_de_email_verification", user)
 
 		if err != nil {
 			panic(err)
